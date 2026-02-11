@@ -31,3 +31,18 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Logs ###
+*.log
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### H2 (se usar file mode em algum profile local) ###
+/data/
+*.mv.db
+*.trace.db
+
+### Env/secrets ###
+.env
