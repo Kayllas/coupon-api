@@ -24,7 +24,7 @@ public record CreateCouponRequest(
     BigDecimal discountValue,
 
     @NotNull
-    @Schema(type = "string", format = "date-time", example = "2025-11-04T17:14:45.180Z", description = "Data de expiração do cupom")
+    @Schema(type = "string", format = "date-time", example = "2027-12-31T23:59:59.000Z", description = "Data de expiração do cupom (deve ser no futuro)")
     Instant expirationDate,
 
     @Schema(example = "false", description = "Opcional. Padrão é false.")
