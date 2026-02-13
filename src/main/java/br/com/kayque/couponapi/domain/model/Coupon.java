@@ -20,7 +20,7 @@ public class Coupon {
     private boolean redeemed;
 
     private Coupon(UUID id, CouponCode code, String description, DiscountValue discountValue,
-                    ExpirationDate expirationDate, boolean published, boolean redeemed) {
+                    ExpirationDate expirationDate, CouponStatus status, boolean published, boolean redeemed) {
         this.id = id;
         this.code = code;
         this.description = description;
@@ -31,10 +31,10 @@ public class Coupon {
         this.redeemed = redeemed;
     }
 
-    public static Coupon create(Coupon code, String description, DiscountValue discount, ExpirationDate expirationDate, boolean published) {
+    public static Coupon create(CouponCode code, String description, DiscountValue discount, ExpirationDate expirationDate, boolean published) {
         if (description == null || description.isBlank()) throw new DomainValidationException("Descrição do cupom é obrigatória");
 
-    CouponStatus status = published ? CouponStatus.ACTIVE : CouponStatus.INACTIVE;
+        CouponStatus status = published ? CouponStatus.ACTIVE : CouponStatus.INACTIVE;
         return new Coupon(UUID.randomUUID(), code, description, discount, expirationDate, status, published, false);
     }
 
